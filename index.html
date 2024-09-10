@@ -1,0 +1,620 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Tribhuvan Bill Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        body {
+            margin: 0;
+            background: #c2c2c2;
+            width: 100%;
+            float: left;
+        }
+
+        .width100AndFlt {
+            width: 100%;
+            float: left
+        }
+
+        header {
+            background: rgb(63, 94, 251);
+            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            padding: 20px 0px;
+            font-size: 30px;
+        }
+
+        .width100 {
+            width: 100%
+        }
+
+        .show_bill_btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 7px;
+            background: greenyellow;
+            color: white;
+            font-size: 24px;
+            font-weight: bolder;
+            outline: none;
+            border: none;
+        }
+
+        .bill_parent {
+            width: 100%;
+            background: white;
+            display: none;
+            padding: 25px;
+            text-align: center
+        }
+
+        .border_parent {
+            border: 2px solid black;
+            border-radius: 6px;
+            width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .bill_first_row {
+            padding: 15px;
+            display: flex
+        }
+
+        .logo_styles {
+            width: 15%
+        }
+
+        .main_heading {
+            color: red;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0px;
+            margin-bottom: 10px
+        }
+
+        .other_heading {
+            color: blue;
+            margin: 0px
+        }
+
+        .heading_column {
+            padding-left: 20px
+        }
+
+        .fontblack {
+            color: black
+        }
+
+        .mt-10 {
+            margin-top: 10px
+        }
+
+        .date_billno {
+            align-self: center;
+            margin-left: auto;
+        }
+
+        .bill_table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0px
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid
+        }
+
+        .bill_second_row {
+            display: flex;
+            border-top: 1px solid
+        }
+
+        .bill_consignor_main {
+            border-right: 1px solid;
+            width: 33.3%;
+            padding: 10px
+        }
+
+        .bill_consginee_main {
+            border-right: 1px solid;
+            width: 33.3%;
+            padding: 10px
+        }
+
+        .bill_paidby_main {
+            width: 33.4%;
+            padding: 9px
+        }
+
+        .bill_third_row {}
+
+        .bill_fourth_row {
+            border-top: 1px solid;
+            display: flex;
+        }
+
+        .Acknowledgement_sec {
+            padding: 10px;
+            width: 60%;
+            border-right: 1px solid;
+        }
+
+        .Seal_sec {
+            width: 40%;
+            text-align: center
+        }
+
+        .bill_third_row table {
+            table-layout: fixed;
+            text-align: center
+        }
+
+        .bill_third_row input {
+            width: 100%;
+            border: none
+        }
+
+        .wdt98 {
+            width: 98px;
+        }
+
+        .wdt76 {
+            width: 76px;
+        }
+
+        .wdt105 {
+            width: 105px;
+        }
+
+        .wdt205 {
+            width: 205px
+        }
+
+        .wdt226 {
+            width: 226px
+        }
+
+        .f-21 {
+            font-size: 21px;
+        }
+
+        .manual_office {
+            width: 100%;
+            border: none;
+            height: 50px;
+            resize: none;
+            font-size: 15px
+        }
+
+        .manual_input {
+            width: 83%;
+            border: none;
+            font-size: 15px
+        }
+
+        .f-36 {
+            font-size: 36px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main_parent width100AndFlt">
+        <header id="input_content" class="width100AndFlt">
+            TRIBHUVAN FREIGHT CARRIERS
+        </header>
+        <div id="input_content1" class="input_parent width100AndFlt">
+            <input class="width100 mt-10 f-36" id="bill_id" type="number" placeholder="Enter Bill no.">
+            <input class="width100 mt-10 f-36" id="date_id" type="date" placeholder="Enter the date">
+
+            <div class="mt-10">
+                <label class="width100 mt-10 f-36" for="cars">Choose the consignor:</label>
+                <select class="mt-10 width100 f-36" name="consignorDropdown" id="consignorDropdown">
+                    <option value="1">WURFEL</option>
+                    <option value="2">TRAVOS</option>
+                    <option value="3">CHRONOS Studio</option>
+                    <option value="4">M/S.AVENUE Ishanapur</option>
+                    <option value="5">Sri Chakra</option>
+                    <option value="6">M/S.AVENUE Bhiwandi</option>
+                    <option value="7">M/S.AVENUE Anekal</option>
+                    <option value="8">M/S.AVENUE Vadodara</option>
+                    <option value="9">Nanda Groups</option>
+                    <option value="10">Ryder Accessories</option>
+                    <option value="11">MISMAC</option>
+                    <option value="12">FAYE INC RAIPUR</option>
+                    <option value="13">VINCIHOME</option>
+                    <option value="14">MVM Design Studio</option>
+                    <option value="15">AIRAVA INTERIOR SOLUTIONS PVT LTD</option>
+                    <option value="16">Others</option>
+                </select>
+            </div>
+
+            <div class="mt-10">
+                <label class="width100 mt-10" for="cars">Choose the consignee:</label>
+                <select class="width100 mt-10 f-36" id="consgineeDropdown" name="consinee">
+                    <option value="1">WURFEL</option>
+                    <option value="2">TRAVOS</option>
+                    <option value="3">CHRONOS Studio</option>
+                    <option value="4">M/S.AVENUE Ishanapur</option>
+                    <option value="5">Sri Chakra</option>
+                    <option value="6">M/S.AVENUE Bhiwandi</option>
+                    <option value="7">M/S.AVENUE Anekal</option>
+                    <option value="8">M/S.AVENUE Vadodara</option>
+                    <option value="9">Nanda Groups</option>
+                    <option value="10">Ryder Accessories</option>
+                    <option value="11">MISMAC</option>
+                    <option value="12">FAYE INC RAIPUR</option>
+                    <option value="13">VINCIHOME</option>
+                    <option value="14">MVM Design Studio</option>
+                    <option value="15">AIRAVA INTERIOR SOLUTIONS PVT LTD</option>
+                    <option value="16">Others</option>
+                </select>
+            </div>
+
+            <div class="mt-10">
+                <label class="width100 mt-10" for="cars">Choose the paid by:</label>
+                <select class="width100 mt-10 f-36" id="paidDropdown" name="paid">
+                    <option value="1">WURFEL</option>
+                    <option value="2">TRAVOS</option>
+                    <option value="3">CHRONOS Studio</option>
+                    <option value="4">M/S.AVENUE Ishanapur</option>
+                    <option value="5">Sri Chakra</option>
+                    <option value="6">M/S.AVENUE Bhiwandi</option>
+                    <option value="7">M/S.AVENUE Anekal</option>
+                    <option value="8">M/S.AVENUE Vadodara</option>
+                    <option value="9">Nanda Groups</option>
+                    <option value="10">Ryder Accessories</option>
+                    <option value="11">MISMAC</option>
+                    <option value="12">FAYE INC RAIPUR</option>
+                    <option value="13">VINCIHOME</option>
+                    <option value="14">MVM Design Studio</option>
+                    <option value="15">AIRAVA INTERIOR SOLUTIONS PVT LTD</option>
+                    <option value="16">Others</option>
+                </select>
+            </div>
+            <button onclick="showlogo()" class="width100 mt-10">Show Seal</button>
+            <div class="width100 mt-10">
+                <button onclick="showBillFun()" class="show_bill_btn">Show bill</button>
+            </div>
+        </div>
+        <div id="bill_content" class="bill_parent">
+            <div class="border_parent">
+                <div class="bill_first_row">
+                    <img class="logo_styles" src="tribhuvan_logo.png">
+                    <div class="heading_column">
+                        <p class="main_heading">TRIBHUVAN FREIGHT CARRIERS</p>
+                        <p class="other_heading">Transport Contractor & Booking Agents</p>
+                        <p class="other_heading">C-60, 1st Floor, Near Kanteerava Studio Main Road</p>
+                        <p class="other_heading">Yeshwantpur, Bengaluru-22</p>
+                        <!--                            <p class="other_heading mt-10"><span>Mob: <span class="fontblack">6360239449</span></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Email:  <span class="fontblack">tribhuvanfreightcarrier@gmail.com</span></span> </p>-->
+                    </div>
+                    <div class="date_billno">
+                        <p><span>Bill no: </span><span id="bill_display"></span></p>
+                        <p><span>Date: </span><span id="date_display"></span></p>
+                    </div>
+                </div>
+
+                <div class="bill_second_row">
+                    <div class="bill_consignor_main">
+                        <b>Consignor:</b>
+                        <div id="showConsignorInput">
+                            <p><textarea class="manual_office" type=""></textarea></p>
+                        </div>
+                        <p id="showConsignor"></p>
+                        <div><b>GST: </b><span id="showConsignorGST"></span>
+                            <input class="manual_input" id="showConsignorInput" type="">
+                        </div>
+                    </div>
+                    <div class="bill_consginee_main">
+                        <b>Consignee:</b>
+                        <div id="showConsgineeInput">
+                            <p><textarea class="manual_office" type=""></textarea></p>
+                        </div>
+                        <p id="showConsignee"></p>
+                        <div><b>GST: </b><span id="showConsigneeGST"></span>
+                            <input class="manual_input" id="showConsgineeInput" type="">
+                        </div>
+                    </div>
+                    <div class="bill_paidby_main">
+                        <b>Transportation charge paid-by:</b>
+                        <div id="showPaidByInput">
+                            <p><textarea class="manual_office" type=""></textarea></p>
+                        </div>
+                        <p id="showBillPaidBy"></p>
+                        <div><b>GST: </b><span id="showBillPaidByGST"></span>
+                            <input class="manual_input" id="showPaidByInput" type="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bill_third_row">
+                    <table class="bill_table">
+                        <tr>
+                            <th class="wdt98">GC No/ Vehicle No</th>
+                            <th class="wdt76">Date</th>
+                            <th class="wdt98">From</th>
+                            <th class="wdt105">To</th>
+                            <th class="wdt205">Particulars / No of packages</th>
+                            <th>Weight / Rate / Kms</th>
+                            <th style="width: 166px" colspan="2">Amount Rs.</th>
+                        </tr>
+                        <tr>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td colspan="2"><input id="total1" style="text-align: end" value="" name=""></td>
+                        </tr>
+                        <tr>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td colspan="2"><input id="total2" style="text-align: end" value="" name=""></td>
+                        </tr>
+                        <tr>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td colspan="2"><input id="total3" style="text-align: end" value="" name=""></td>
+                        </tr>
+                        <tr>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td><input value="" name=""></td>
+                            <td colspan="2"><input id="total4" style="text-align: end" value="" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>VLUC:</td>
+                            <td><input id="total5" style="text-align: end" value="0.00" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Halting:</td>
+                            <td><input id="total6" style="text-align: end" value="0.00" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Other:</td>
+                            <td><input id="total7" style="text-align: end" value="0.00" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Stationery:</td>
+                            <td><input id="total8" style="text-align: end" value="0.00" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total:</td>
+                            <td><input id="total9" style="text-align: end" value="0.00" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>GST:</td>
+                            <td><input id="total10" style="text-align: end" value="0.00" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Grand total:</td>
+                            <td><input id="totalGrand" onclick="addAmount()" style="text-align: end" value="" name="">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div class="bill_fourth_row">
+                    <div class="Acknowledgement_sec">
+                        <div><b>
+                                <p>Acknowledgment enclosed</p>
+                            </b></div>
+                        <div>PAN No : BBFPT5442L</div>
+                        <div><b>
+                                <p>BANK DETAILS</p>
+                            </b></div>
+                        <div>BANK NAME - STATE BANK OF INDIA</div>
+                        <div>A/C NO -38744275366</div>
+                        <div>IFSC CODE - SBIN0041067</div>
+                        <div>BRANCH - ANCHEPALYA</div>
+                        <div><b>
+                                <p>NOTE : GST PAID BY PARTY. Under RCM</p>
+                            </b></div>
+                    </div>
+                    <div class="Seal_sec">
+                        <div style="" class="f-21 mt-10">For Tribhuvan Freight Carrier</div>
+                        <img style="display: none; margin: auto" id="show_logo" src="seal.png" width="250px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    const addressData = {
+        1: {
+            "address": "Wurfel Kuche Pvt Ltd, Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk Bangalore rural district. 562122",
+            "gst": "29AABCW7783N1ZC"
+        },
+        2: {
+            "address": "M/S . TRAVOS VENTURES LLP, Store no-6N, 1st Lane Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai- 400053.",
+            "gst": "27AALFT9171A1Z0"
+        },
+        3: {
+            "address": "M/S . CHRONOS DESIGN STUDIO, Shop no : 4, Mahavir Shikar LBS Marg Mulund West Mumbai-400080.",
+            "gst": "27AANFC7746G1Z2"
+        },
+        4: {
+            "address": "M/S . AVENUE SUPERMARTS LTD, Ishanapur Hyd 205, Isnapur Sangareddy Madak Ishanapur- 502307.",
+            "gst": "36AACCA8432H1ZR"
+        },
+        5: {
+            "address": "M/S . Sri CHAKRA INDUSTRIES, 13/14, Azeez Sait Industrial Estate, Nayandahalli, Mysore Road, Bangalore-560039.",
+            "gst": "29ABWFS0002M1ZR"
+        },
+        6: {
+            "address": "M/S . AVENUE SUPERMARTS LTD, GM DC Bhiwandi Shed, A-5, 75&76 Antariksh Logidrom, A-5 Village, Bhiwandi-421302.",
+            "gst": "27AACCA8432H1ZQ"
+        },
+        7: {
+            "address": "AVENUE SUPERMARTS LTD, Banerghatta, Hullahalli village, Jigani Hobli, Anekal Taluk, Bangalore-560083.",
+            "gst": "29AACCA8432H1ZM"
+        },
+        8: {
+            "address": "M/S . AVENUE SUPERMARTS LTD, Shed A, 1033, Horizone Industrial Park, Survey No- 224, Bamangam Village, Karjan Taluk, Vadodara-391243.",
+            "gst": "24AACCA8432H1ZW"
+        },
+        9: {
+            "address": "NANDA GROUPS - RETAIL VADODARA, 1 Dreamland Apartment, Plot No 11, Sudhanagar, Next to hocolate Room, Vadodara-390007",
+            "gst": "24BBIPD6223L1ZR"
+        },
+        10: {
+            "address": "RYDER AUTO ACCESSORIES, NO: 10, Ground & 1st Floor, No: 9, 1st Floor, 2nd Cross, Sindhi Colony, JC Road, Bangalore-560002",
+            "gst": "29AABFR3835P1ZM"
+        },
+        11: {
+            "address": "MISMAC OVEN INDUSTRIES, No.7, 5TH cross, Kalathur Layout, Abbigere Lakshmipura Road, Bengaluru-560090",
+            "gst": "29ABHFM6519N1ZK"
+        },
+        12: {
+            "address": "FAYE INC RAIPUR, 608/3 ariena boutique hotel Opposite oswal petrol pump Vip road, telibandha, raipur , chhattisgarh-492001",
+            "gst": "22ALKPK5256H1Z4"
+        },
+        13: {
+            "address": "VINCIHOME, New Checkon near Bazar India Opposite Tribal Colony Imphal-795005",
+            "gst": "14BJEPK7304R3ZU"
+        },
+        14: {
+            "address": "MVM Design Studio, #252, 10th Main, 100 Feet Road, HRBR Layout, Kalyannagar, Banaswadi, Bangalore",
+            "gst": "29ABBFM0899H1ZW"
+        },
+        15: {
+            "address": "AIRAVA INTERIOR SOLUTIONS PVT LTD, Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk. Bangalore rural district.",
+            "gst": "29AABCW7783N1ZC"
+        },
+        16: { name: "Others", gst: "" }
+    }
+
+    // Function to display data for Consignor, Consignee, and Paid-By
+    function displayData(dropdownId, displayId, gstId, inputId) {
+        const dropdown = document.getElementById(dropdownId);
+        const selectedValue = dropdown.value;
+        const selectedOption = addressData[selectedValue];
+        console.log(dropdownId, dropdown.value, addressData[selectedValue],selectedOption.address)
+
+        // Check if "Others" is selected
+        if (selectedValue == 16) {
+            document.getElementById(inputId).style.display = "block"; // Show text area for manual entry
+            document.getElementById(displayId).innerHTML = ""; // Clear pre-set values
+            document.getElementById(gstId).innerHTML = "";
+        } else {
+            document.getElementById(inputId).style.display = "none"; // Hide text area
+            document.getElementById(displayId).innerHTML = selectedOption.address;
+            document.getElementById(gstId).innerHTML = selectedOption.gst;
+        }
+    }
+
+    function showBillFun() {
+
+        console.log(consignorDropdown, consgineeDropdown, paidDropdown)
+
+        document.getElementById('input_content1').style.display = 'none';
+        document.getElementById('bill_content').style.display = 'block';
+
+        // Bill and Date display
+        document.getElementById('bill_display').innerHTML = document.getElementById('bill_id').value;
+        document.getElementById('date_display').innerHTML = document.getElementById('date_id').value;
+
+        // Handling Consignor display
+        displayData('consignorDropdown', 'showConsignor', 'showConsignorGST', 'showConsignorInput');
+
+        // Handling Consignee display
+        displayData('consgineeDropdown', 'showConsignee', 'showConsigneeGST', 'showConsgineeInput');
+
+        // Handling Paid By display
+        displayData('paidDropdown', 'showBillPaidBy', 'showBillPaidByGST', 'showPaidByInput');
+    }
+
+    document.getElementById("show_logo").style.display = "none"
+
+    // Function to show the seal
+    function showlogo() {
+        const logo = document.getElementById('show_logo');
+        logo.style.display = "block";
+    }
+
+    function addAmount() {
+        var Grandtotal;
+
+        Grandtotal = document.getElementById("total1").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total2").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total3").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total4").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total5").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total6").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total7").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total8").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total9").value;
+        Grandtotal = +Grandtotal + +document.getElementById("total10").value;
+        document.getElementById("totalGrand").value = Grandtotal
+
+    }
+</script>
+
+</html>
