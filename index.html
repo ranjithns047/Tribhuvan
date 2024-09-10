@@ -235,7 +235,11 @@
                     <option value="13">VINCIHOME</option>
                     <option value="14">MVM Design Studio</option>
                     <option value="15">AIRAVA INTERIOR SOLUTIONS PVT LTD</option>
-                    <option value="16">Others</option>
+                    <option value="16">LUXDECO</option>
+                    <option value="17">UVS Mobel Private Ltd</option>
+                    <option value="18">Kalita Luxury Living Pvt Ltd</option>
+                    <option value="19">BNH NEW FEEL</option>
+                    <option value="20">Others</option>
                 </select>
             </div>
 
@@ -257,7 +261,11 @@
                     <option value="13">VINCIHOME</option>
                     <option value="14">MVM Design Studio</option>
                     <option value="15">AIRAVA INTERIOR SOLUTIONS PVT LTD</option>
-                    <option value="16">Others</option>
+                    <option value="16">LUXDECO</option>
+                    <option value="17">UVS Mobel Private Ltd</option>
+                    <option value="18">Kalita Luxury Living Pvt Ltd</option>
+                    <option value="19">BNH NEW FEEL</option>
+                    <option value="20">Others</option>
                 </select>
             </div>
 
@@ -279,7 +287,11 @@
                     <option value="13">VINCIHOME</option>
                     <option value="14">MVM Design Studio</option>
                     <option value="15">AIRAVA INTERIOR SOLUTIONS PVT LTD</option>
-                    <option value="16">Others</option>
+                    <option value="16">LUXDECO</option>
+                    <option value="17">UVS Mobel Private Ltd</option>
+                    <option value="18">Kalita Luxury Living Pvt Ltd</option>
+                    <option value="19">BNH NEW FEEL</option>
+                    <option value="20">Others</option>
                 </select>
             </div>
             <button onclick="showlogo()" class="width100 mt-10">Show Seal</button>
@@ -548,7 +560,37 @@
             "address": "AIRAVA INTERIOR SOLUTIONS PVT LTD, Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk. Bangalore rural district.",
             "gst": "29AABCW7783N1ZC"
         },
-        16: { name: "Others", gst: "" }
+        16: {
+            "address": `LUXDECO
+Shop No 4, Archies Court, Shankar Sheth,
+            Rd, Ghorpade Peth, Swargate, Pune 
+Maharashtra - 411037`,
+            "gst": "27BTIPK9127L1Z4"
+        },
+        17: {
+            "address": `UVS Mobel Private Ltd 
+HA 101, Sector 104,Noida
+District Gaurtam Budhanagar
+Uttar Pradesh.`,
+            "gst": "09AACCU3842R1ZN"
+        },
+        18: {
+            "address": `Kalita Luxury Living Pvt Ltd
+
+Village Pillerne, CHOGM Road,
+Alto Parvorim, Bardez, Penha De Franca,
+Goa - 403521.`,
+            "gst": "30AAKCK4016H1ZX"
+        },
+        19: {
+            "address": `BNH NEW FEEL 
+GR Shop No 7, Mahavir Nagar,
+Shiv Shrushti CHS Ltd, Link Road,
+Kandivalli West, Mumbai,
+ Maharashtra-400067`,
+            "gst": "27BQOPS9819J3ZR"
+        },
+        20: { name: "Others", gst: "" }
     }
 
     // Function to display data for Consignor, Consignee, and Paid-By
@@ -556,10 +598,10 @@
         const dropdown = document.getElementById(dropdownId);
         const selectedValue = dropdown.value;
         const selectedOption = addressData[selectedValue];
-        console.log(dropdownId, dropdown.value, addressData[selectedValue],selectedOption.address)
+        console.log(dropdownId, dropdown.value, addressData[selectedValue], selectedOption.address)
 
         // Check if "Others" is selected
-        if (selectedValue == 16) {
+        if (selectedValue == 20) {
             document.getElementById(inputId).style.display = "block"; // Show text area for manual entry
             document.getElementById(displayId).innerHTML = ""; // Clear pre-set values
             document.getElementById(gstId).innerHTML = "";
