@@ -306,9 +306,9 @@
                     <img class="logo_styles" src="tribhuvan_logo.png">
                     <div class="heading_column">
                         <p class="main_heading">TRIBHUVAN FREIGHT CARRIER</p>
-                        <p class="other_heading">Transport Contractor & Booking Agents</p>
-                        <p class="other_heading">C-60, 1st Floor, Near Kanteerava Studio Main Road</p>
-                        <p class="other_heading">Yeshwantpur, Bengaluru-22</p>
+                        <p class="other_heading">No-70, Innovative Garden Layout,</p>
+                        <p class="other_heading">4th cross, Madanayakanahalli, Bangalore - 562123</p>
+                        <p class="other_heading">GST NO : 29BBFPT5442L1Z1</p>
                         <!--                            <p class="other_heading mt-10"><span>Mob: <span class="fontblack">6360239449</span></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Email:  <span class="fontblack">tribhuvanfreightcarrier@gmail.com</span></span> </p>-->
                     </div>
                     <div class="date_billno">
@@ -323,7 +323,8 @@
                         <div id="showConsignorInput">
                             <p><textarea class="manual_office" type=""></textarea></p>
                         </div>
-                        <p id="showConsignor"></p>
+                        <p style="margin-bottom: 0px;" id="showConsignorName"></p>
+                        <p style="margin-top: 0px;" id="showConsignorAddress"></p>
                         <div><b>GST: </b><span id="showConsignorGST"></span>
                             <input class="manual_input" id="showConsignorInput" type="">
                         </div>
@@ -333,7 +334,8 @@
                         <div id="showConsgineeInput">
                             <p><textarea class="manual_office" type=""></textarea></p>
                         </div>
-                        <p id="showConsignee"></p>
+                        <p style="margin-bottom: 0px;" id="showConsigneeName"></p>
+                        <p style="margin-top: 0px;" id="showConsigneeAddress"></p>
                         <div><b>GST: </b><span id="showConsigneeGST"></span>
                             <input class="manual_input" id="showConsgineeInput" type="">
                         </div>
@@ -343,7 +345,8 @@
                         <div id="showPaidByInput">
                             <p><textarea class="manual_office" type=""></textarea></p>
                         </div>
-                        <p id="showBillPaidBy"></p>
+                        <p style="margin-bottom: 0px;" id="showBillPaidByName"></p>
+                        <p style="margin-top: 0px;" id="showBillPaidByAddress"></p>
                         <div><b>GST: </b><span id="showBillPaidByGST"></span>
                             <input class="manual_input" id="showPaidByInput" type="">
                         </div>
@@ -502,100 +505,105 @@
 
     const addressData = {
         1: {
-            "address": "Wurfel Kuche Pvt Ltd, Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk Bangalore rural district. 562122",
+            "name": 'Wurfel Kuche Pvt Ltd',
+            "address": "Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk Bangalore rural district. 562122",
             "gst": "29AABCW7783N1ZC"
         },
         2: {
-            "address": "M/S . TRAVOS VENTURES LLP, Store no-6N, 1st Lane Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai- 400053.",
+            "name": "M/S. TRAVOS VENTURES LLP",
+            "address": "Store no-6N, 1st Lane Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai- 400053.",
             "gst": "27AALFT9171A1Z0"
         },
         3: {
-            "address": "M/S . CHRONOS DESIGN STUDIO, Shop no : 4, Mahavir Shikar LBS Marg Mulund West Mumbai-400080.",
+            "name": "M/S. CHRONOS DESIGN STUDIO",
+            "address": "Shop no : 4, Mahavir Shikar LBS Marg Mulund West Mumbai-400080.",
             "gst": "27AANFC7746G1Z2"
         },
         4: {
-            "address": "M/S . AVENUE SUPERMARTS LTD, Ishanapur Hyd 205, Isnapur Sangareddy Madak Ishanapur- 502307.",
+            "name": "M/S. AVENUE SUPERMARTS LTD",
+            "address": "Ishanapur Hyd 205, Isnapur Sangareddy Madak Ishanapur- 502307.",
             "gst": "36AACCA8432H1ZR"
         },
         5: {
-            "address": "M/S . Sri CHAKRA INDUSTRIES, 13/14, Azeez Sait Industrial Estate, Nayandahalli, Mysore Road, Bangalore-560039.",
+            "name": "M/S. Sri CHAKRA INDUSTRIES",
+            "address": "13/14, Azeez Sait Industrial Estate, Nayandahalli, Mysore Road, Bangalore-560039.",
             "gst": "29ABWFS0002M1ZR"
         },
         6: {
-            "address": "M/S . AVENUE SUPERMARTS LTD, GM DC Bhiwandi Shed, A-5, 75&76 Antariksh Logidrom, A-5 Village, Bhiwandi-421302.",
+            "name": "M/S . AVENUE SUPERMARTS LTD",
+            "address": "GM DC Bhiwandi Shed, A-5, 75&76 Antariksh Logidrom, A-5 Village, Bhiwandi-421302.",
             "gst": "27AACCA8432H1ZQ"
         },
         7: {
-            "address": "AVENUE SUPERMARTS LTD, Banerghatta, Hullahalli village, Jigani Hobli, Anekal Taluk, Bangalore-560083.",
+            "name": "AVENUE SUPERMARTS LTD",
+            "address": "Banerghatta, Hullahalli village, Jigani Hobli, Anekal Taluk, Bangalore-560083.",
             "gst": "29AACCA8432H1ZM"
         },
         8: {
-            "address": "M/S . AVENUE SUPERMARTS LTD, Shed A, 1033, Horizone Industrial Park, Survey No- 224, Bamangam Village, Karjan Taluk, Vadodara-391243.",
+            "name": "M/S . AVENUE SUPERMARTS LTD",
+            "address": "Shed A, 1033, Horizone Industrial Park, Survey No- 224, Bamangam Village, Karjan Taluk, Vadodara-391243.",
             "gst": "24AACCA8432H1ZW"
         },
         9: {
-            "address": "NANDA GROUPS - RETAIL VADODARA, 1 Dreamland Apartment, Plot No 11, Sudhanagar, Next to hocolate Room, Vadodara-390007",
+            "name": "NANDA GROUPS - RETAIL VADODARA",
+            "address": "1 Dreamland Apartment, Plot No 11, Sudhanagar, Next to hocolate Room, Vadodara-390007",
             "gst": "24BBIPD6223L1ZR"
         },
         10: {
-            "address": "RYDER AUTO ACCESSORIES, NO: 10, Ground & 1st Floor, No: 9, 1st Floor, 2nd Cross, Sindhi Colony, JC Road, Bangalore-560002",
+            "name": "RYDER AUTO ACCESSORIES",
+            "address": "NO: 10, Ground & 1st Floor, No: 9, 1st Floor, 2nd Cross, Sindhi Colony, JC Road, Bangalore-560002",
             "gst": "29AABFR3835P1ZM"
         },
         11: {
-            "address": "MISMAC OVEN INDUSTRIES, No.7, 5TH cross, Kalathur Layout, Abbigere Lakshmipura Road, Bengaluru-560090",
+            "name": "MISMAC OVEN INDUSTRIES",
+            "address": "No.7, 5TH cross, Kalathur Layout, Abbigere Lakshmipura Road, Bengaluru-560090",
             "gst": "29ABHFM6519N1ZK"
         },
         12: {
-            "address": "FAYE INC RAIPUR, 608/3 ariena boutique hotel Opposite oswal petrol pump Vip road, telibandha, raipur , chhattisgarh-492001",
+            "name": "FAYE INC RAIPUR",
+            "address": "608/3 ariena boutique hotel Opposite oswal petrol pump Vip road, telibandha, raipur , chhattisgarh-492001",
             "gst": "22ALKPK5256H1Z4"
         },
         13: {
-            "address": "VINCIHOME, New Checkon near Bazar India Opposite Tribal Colony Imphal-795005",
+            "name": "VINCIHOME",
+            "address": "New Checkon near Bazar India Opposite Tribal Colony Imphal-795005",
             "gst": "14BJEPK7304R3ZU"
         },
         14: {
-            "address": "MVM Design Studio, #252, 10th Main, 100 Feet Road, HRBR Layout, Kalyannagar, Banaswadi, Bangalore",
+            "name": "MVM Design Studio",
+            "address": "#252, 10th Main, 100 Feet Road, HRBR Layout, Kalyannagar, Banaswadi, Bangalore",
             "gst": "29ABBFM0899H1ZW"
         },
         15: {
-            "address": "AIRAVA INTERIOR SOLUTIONS PVT LTD, Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk. Bangalore rural district.",
+            "name": "AIRAVA INTERIOR SOLUTIONS PVT LTD",
+            "address": "Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk. Bangalore rural district.",
             "gst": "29AABCW7783N1ZC"
         },
         16: {
-            "address": `LUXDECO
-Shop No 4, Archies Court, Shankar Sheth,
-            Rd, Ghorpade Peth, Swargate, Pune 
-Maharashtra - 411037`,
+            "name": `LUXDECO`,
+            "address": `Shop No 4, Archies Court, Shankar Sheth, Rd, Ghorpade Peth, Swargate, Pune, Maharashtra - 411037`,
             "gst": "27BTIPK9127L1Z4"
         },
         17: {
-            "address": `UVS Mobel Private Ltd 
-HA 101, Sector 104,Noida
-District Gaurtam Budhanagar
-Uttar Pradesh.`,
+            "name": `UVS Mobel Private Ltd`,
+            "address": `HA 101, Sector 104, Noida, District Gaurtam Budhanagar, Uttar Pradesh.`,
             "gst": "09AACCU3842R1ZN"
         },
         18: {
-            "address": `Kalita Luxury Living Pvt Ltd
-
-Village Pillerne, CHOGM Road,
-Alto Parvorim, Bardez, Penha De Franca,
-Goa - 403521.`,
+            "name": `Kalita Luxury Living Pvt Ltd`,
+            "address": `Village Pillerne, CHOGM Road, Alto Parvorim, Bardez, Penha De Franca, Goa - 403521.`,
             "gst": "30AAKCK4016H1ZX"
         },
         19: {
-            "address": `BNH NEW FEEL 
-GR Shop No 7, Mahavir Nagar,
-Shiv Shrushti CHS Ltd, Link Road,
-Kandivalli West, Mumbai,
- Maharashtra-400067`,
+            "name": `BNH NEW FEEL`,
+            "address": `GR Shop No 7, Mahavir Nagar, Shiv Shrushti CHS Ltd, Link Road, Kandivalli West, Mumbai, Maharashtra-400067`,
             "gst": "27BQOPS9819J3ZR"
         },
         20: { name: "Others", gst: "" }
     }
 
     // Function to display data for Consignor, Consignee, and Paid-By
-    function displayData(dropdownId, displayId, gstId, inputId) {
+    function displayData(dropdownId, displayIdName, displayIdAddress, gstId, inputId) {
         const dropdown = document.getElementById(dropdownId);
         const selectedValue = dropdown.value;
         const selectedOption = addressData[selectedValue];
@@ -604,11 +612,13 @@ Kandivalli West, Mumbai,
         // Check if "Others" is selected
         if (selectedValue == 20) {
             document.getElementById(inputId).style.display = "block"; // Show text area for manual entry
-            document.getElementById(displayId).innerHTML = ""; // Clear pre-set values
+            document.getElementById(displayIdName).innerHTML = ""; // Clear pre-set values
+            document.getElementById(displayIdAddress).innerHTML = ""; // Clear pre-set values
             document.getElementById(gstId).innerHTML = "";
         } else {
             document.getElementById(inputId).style.display = "none"; // Hide text area
-            document.getElementById(displayId).innerHTML = selectedOption.address;
+            document.getElementById(displayIdName).innerHTML = selectedOption.name;
+            document.getElementById(displayIdAddress).innerHTML = selectedOption.address;
             document.getElementById(gstId).innerHTML = selectedOption.gst;
         }
     }
@@ -626,13 +636,13 @@ Kandivalli West, Mumbai,
         document.getElementById('date_display').innerHTML = document.getElementById('date_id').value;
 
         // Handling Consignor display
-        displayData('consignorDropdown', 'showConsignor', 'showConsignorGST', 'showConsignorInput');
+        displayData('consignorDropdown', 'showConsignorName', 'showConsignorAddress', 'showConsignorGST', 'showConsignorInput');
 
         // Handling Consignee display
-        displayData('consgineeDropdown', 'showConsignee', 'showConsigneeGST', 'showConsgineeInput');
+        displayData('consgineeDropdown', 'showConsigneeName', 'showConsigneeAddress', 'showConsigneeGST', 'showConsgineeInput');
 
         // Handling Paid By display
-        displayData('paidDropdown', 'showBillPaidBy', 'showBillPaidByGST', 'showPaidByInput');
+        displayData('paidDropdown', 'showBillPaidByName', 'showBillPaidByAddress', 'showBillPaidByGST', 'showPaidByInput');
     }
 
     document.getElementById("show_logo").style.display = "none"
