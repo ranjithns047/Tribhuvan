@@ -192,7 +192,7 @@
         .manual_office {
             width: 100%;
             border: none;
-            height: 70px;
+            height: 80px;
             font-size: 15px
         }
 
@@ -501,105 +501,66 @@
     </div>
 </body>
 <script>
+    let partyData = {}; // Replaces addressData
 
-    const addressData = {
-        1: {
-            "name": 'Wurfel Kuche Pvt Ltd',
-            "address": "Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk Bangalore rural district. 562122",
-            "gst": "29AABCW7783N1ZC"
-        },
-        2: {
-            "name": "M/S. TRAVOS VENTURES LLP",
-            "address": "Store no-6N, 1st Lane Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai- 400053.",
-            "gst": "27AALFT9171A1Z0"
-        },
-        3: {
-            "name": "M/S. CHRONOS DESIGN STUDIO",
-            "address": "Shop no : 4, Mahavir Shikar LBS Marg Mulund West Mumbai-400080.",
-            "gst": "27AANFC7746G1Z2"
-        },
-        4: {
-            "name": "M/S. AVENUE SUPERMARTS LTD",
-            "address": "Ishanapur Hyd 205, Isnapur Sangareddy Madak Ishanapur- 502307.",
-            "gst": "36AACCA8432H1ZR"
-        },
-        5: {
-            "name": "M/S. Sri CHAKRA INDUSTRIES",
-            "address": "13/14, Azeez Sait Industrial Estate, Nayandahalli, Mysore Road, Bangalore-560039.",
-            "gst": "29ABWFS0002M1ZR"
-        },
-        6: {
-            "name": "M/S . AVENUE SUPERMARTS LTD",
-            "address": "GM DC Bhiwandi Shed, A-5, 75&76 Antariksh Logidrom, A-5 Village, Bhiwandi-421302.",
-            "gst": "27AACCA8432H1ZQ"
-        },
-        7: {
-            "name": "AVENUE SUPERMARTS LTD",
-            "address": "Banerghatta, Hullahalli village, Jigani Hobli, Anekal Taluk, Bangalore-560083.",
-            "gst": "29AACCA8432H1ZM"
-        },
-        8: {
-            "name": "M/S . AVENUE SUPERMARTS LTD",
-            "address": "Shed A, 1033, Horizone Industrial Park, Survey No- 224, Bamangam Village, Karjan Taluk, Vadodara-391243.",
-            "gst": "24AACCA8432H1ZW"
-        },
-        9: {
-            "name": "NANDA GROUPS - RETAIL VADODARA",
-            "address": "1 Dreamland Apartment, Plot No 11, Sudhanagar, Next to hocolate Room, Vadodara-390007",
-            "gst": "24BBIPD6223L1ZR"
-        },
-        10: {
-            "name": "RYDER AUTO ACCESSORIES",
-            "address": "NO: 10, Ground & 1st Floor, No: 9, 1st Floor, 2nd Cross, Sindhi Colony, JC Road, Bangalore-560002",
-            "gst": "29AABFR3835P1ZM"
-        },
-        11: {
-            "name": "MISMAC OVEN INDUSTRIES",
-            "address": "No.7, 5TH cross, Kalathur Layout, Abbigere Lakshmipura Road, Bengaluru-560090",
-            "gst": "29ABHFM6519N1ZK"
-        },
-        12: {
-            "name": "FAYE INC RAIPUR",
-            "address": "608/3 ariena boutique hotel Opposite oswal petrol pump Vip road, telibandha, raipur , chhattisgarh-492001",
-            "gst": "22ALKPK5256H1Z4"
-        },
-        13: {
-            "name": "VINCIHOME",
-            "address": "New Checkon near Bazar India Opposite Tribal Colony Imphal-795005",
-            "gst": "14BJEPK7304R3ZU"
-        },
-        14: {
-            "name": "MVM Design Studio",
-            "address": "#252, 10th Main, 100 Feet Road, HRBR Layout, Kalyannagar, Banaswadi, Bangalore",
-            "gst": "29ABBFM0899H1ZW"
-        },
-        15: {
-            "name": "AIRAVA INTERIOR SOLUTIONS PVT LTD",
-            "address": "Sy. No 179. Begur village n post Sulebeli hobli. Hoskote taluk. Bangalore rural district.",
-            "gst": "29AABCW7783N1ZC"
-        },
-        16: {
-            "name": `LUXDECO`,
-            "address": `Shop No 4, Archies Court, Shankar Sheth, Rd, Ghorpade Peth, Swargate, Pune, Maharashtra - 411037`,
-            "gst": "27BTIPK9127L1Z4"
-        },
-        17: {
-            "name": `UVS Mobel Private Ltd`,
-            "address": `HA 101, Sector 104, Noida, District Gaurtam Budhanagar, Uttar Pradesh.`,
-            "gst": "09AACCU3842R1ZN"
-        },
-        18: {
-            "name": `Kalita Luxury Living Pvt Ltd`,
-            "address": `Village Pillerne, CHOGM Road, Alto Parvorim, Bardez, Penha De Franca, Goa - 403521.`,
-            "gst": "30AAKCK4016H1ZX"
-        },
-        19: {
-            "name": `BNH NEW FEEL`,
-            "address": `GR Shop No 7, Mahavir Nagar, Shiv Shrushti CHS Ltd, Link Road, Kandivalli West, Mumbai, Maharashtra-400067`,
-            "gst": "27BQOPS9819J3ZR"
-        },
-        20: { name: "Others", gst: "" }
+    async function loadParties(dropdownIds) {
+        const url = "https://script.google.com/macros/s/AKfycbymW_x3jXbS1-x6lsc70F6TtwmRa-QAgAd09KTXBtyEEt0OQHsDehfUj-Mfk9mMbT4o/exec"; // Replace with your actual deployed URL
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            // Store party data in a map
+            data.forEach(entry => {
+                partyData[entry.name] = {
+                    address: entry.address,
+                    gst: entry.gst
+                };
+            });
+
+            // Populate all dropdowns
+            dropdownIds.forEach(dropdownId => {
+                const dropdown = document.getElementById(dropdownId);
+                dropdown.innerHTML = ""; // Clear existing options
+
+                Object.keys(partyData).forEach(name => {
+                    const opt = document.createElement("option");
+                    opt.value = name;
+                    opt.textContent = name;
+                    dropdown.appendChild(opt);
+                });
+
+                // Add "Others"
+                const optOthers = document.createElement("option");
+                optOthers.value = "Others";
+                optOthers.textContent = "Others";
+                dropdown.appendChild(optOthers);
+            });
+        } catch (err) {
+            alert("Failed to load party list from Google Sheets.");
+            console.error(err);
+        }
     }
+
+    function displayData(dropdownId, displayIdName, displayIdAddress, gstId, inputId) {
+        const dropdown = document.getElementById(dropdownId);
+        const selectedValue = dropdown.value;
+
+        if (selectedValue === "Others" || !partyData[selectedValue]) {
+            document.getElementById(inputId).style.display = "block";
+            document.getElementById(displayIdName).innerHTML = "";
+            document.getElementById(displayIdAddress).innerHTML = "";
+            document.getElementById(gstId).innerHTML = "";
+        } else {
+            document.getElementById(inputId).style.display = "none";
+            document.getElementById(displayIdName).innerHTML = selectedValue;
+            document.getElementById(displayIdAddress).innerHTML = partyData[selectedValue].address;
+            document.getElementById(gstId).innerHTML = partyData[selectedValue].gst;
+        }
+    }
+
+    window.onload = () => {
+        loadParties(["consignorDropdown", "consgineeDropdown", "paidDropdown"]);
+    };
 
     // Function to display data for Consignor, Consignee, and Paid-By
     function displayData(dropdownId, displayIdName, displayIdAddress, gstId, inputId) {
@@ -623,26 +584,18 @@
     }
 
     function showBillFun() {
-
-        console.log(consignorDropdown, consgineeDropdown, paidDropdown)
-
         document.getElementById('input_content0').style.display = 'none';
         document.getElementById('input_content1').style.display = 'none';
         document.getElementById('bill_content').style.display = 'block';
 
-        // Bill and Date display
         document.getElementById('bill_display').innerHTML = document.getElementById('bill_id').value;
         document.getElementById('date_display').innerHTML = document.getElementById('date_id').value;
 
-        // Handling Consignor display
         displayData('consignorDropdown', 'showConsignorName', 'showConsignorAddress', 'showConsignorGST', 'showConsignorInput');
-
-        // Handling Consignee display
         displayData('consgineeDropdown', 'showConsigneeName', 'showConsigneeAddress', 'showConsigneeGST', 'showConsgineeInput');
-
-        // Handling Paid By display
         displayData('paidDropdown', 'showBillPaidByName', 'showBillPaidByAddress', 'showBillPaidByGST', 'showPaidByInput');
     }
+
 
     document.getElementById("show_logo").style.display = "none"
 
